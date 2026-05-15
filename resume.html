@@ -1,0 +1,646 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Jason Osarebo Adams — CRM Automation & Email Marketing Specialist</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet"/>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --ink:       #0f1117;
+      --muted:     #555b6a;
+      --faint:     #8a909e;
+      --accent:    #1a4dcc;
+      --accent-lt: #e8eefb;
+      --rule:      #d8dbe3;
+      --bg:        #f7f8fa;
+      --white:     #ffffff;
+      --tag-bg:    #eef0f6;
+      --serif:     'Playfair Display', Georgia, serif;
+      --sans:      'DM Sans', system-ui, sans-serif;
+    }
+
+    html { font-size: 15px; }
+
+    body {
+      font-family: var(--sans);
+      background: var(--bg);
+      color: var(--ink);
+      line-height: 1.65;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    /* ── PAGE WRAPPER ── */
+    .page {
+      max-width: 860px;
+      margin: 2.5rem auto 4rem;
+      background: var(--white);
+      border-radius: 4px;
+      box-shadow: 0 2px 20px rgba(0,0,0,.07), 0 0 0 1px rgba(0,0,0,.04);
+      overflow: hidden;
+    }
+
+    /* ── HEADER ── */
+    header {
+      background: var(--ink);
+      color: var(--white);
+      padding: 2.8rem 3rem 2.4rem;
+      position: relative;
+      overflow: hidden;
+    }
+    header::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: repeating-linear-gradient(
+        -45deg,
+        transparent,
+        transparent 28px,
+        rgba(255,255,255,.025) 28px,
+        rgba(255,255,255,.025) 29px
+      );
+      pointer-events: none;
+    }
+    header::after {
+      content: '';
+      position: absolute;
+      bottom: 0; left: 3rem; right: 3rem;
+      height: 3px;
+      background: var(--accent);
+      border-radius: 3px 3px 0 0;
+    }
+
+    .name {
+      font-family: var(--serif);
+      font-size: 2.5rem;
+      font-weight: 700;
+      letter-spacing: -.5px;
+      line-height: 1.1;
+      margin-bottom: .4rem;
+    }
+    .title {
+      font-size: .95rem;
+      font-weight: 500;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,.65);
+      margin-bottom: 1.4rem;
+    }
+    .contact-bar {
+      display: flex;
+      flex-wrap: wrap;
+      gap: .5rem .9rem;
+    }
+    .contact-bar a, .contact-bar span {
+      font-size: .82rem;
+      color: rgba(255,255,255,.78);
+      text-decoration: none;
+      display: flex;
+      align-items: center;
+      gap: .3rem;
+    }
+    .contact-bar a:hover { color: #fff; }
+    .contact-bar .sep { color: rgba(255,255,255,.25); }
+
+    /* ── BODY LAYOUT ── */
+    .body { padding: 0 3rem 2rem; }
+
+    /* ── SECTION ── */
+    section { margin-top: 2rem; }
+    .section-title {
+      font-family: var(--serif);
+      font-size: .72rem;
+      font-weight: 600;
+      letter-spacing: .2em;
+      text-transform: uppercase;
+      color: var(--accent);
+      padding-bottom: .45rem;
+      border-bottom: 1.5px solid var(--accent);
+      margin-bottom: 1.1rem;
+      display: flex;
+      align-items: center;
+      gap: .5rem;
+    }
+    .section-title svg { flex-shrink: 0; }
+
+    /* ── SUMMARY ── */
+    .summary p {
+      font-size: .88rem;
+      color: var(--muted);
+      line-height: 1.75;
+    }
+
+    /* ── SKILLS ── */
+    .skills-grid { display: flex; flex-direction: column; gap: .55rem; }
+    .skill-row {
+      display: flex;
+      gap: .6rem;
+      font-size: .83rem;
+      line-height: 1.55;
+    }
+    .skill-label {
+      font-weight: 600;
+      color: var(--ink);
+      white-space: nowrap;
+      min-width: 200px;
+      flex-shrink: 0;
+    }
+    .skill-value { color: var(--muted); }
+
+    /* ── PROJECT CARD ── */
+    .project-card {
+      border: 1px solid var(--rule);
+      border-radius: 6px;
+      padding: 1.2rem 1.4rem;
+      margin-bottom: 1rem;
+      position: relative;
+      transition: box-shadow .2s;
+    }
+    .project-card:hover { box-shadow: 0 4px 18px rgba(26,77,204,.08); }
+    .project-card::before {
+      content: '';
+      position: absolute;
+      left: 0; top: 0; bottom: 0;
+      width: 3px;
+      background: var(--accent);
+      border-radius: 6px 0 0 6px;
+    }
+
+    .project-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      flex-wrap: wrap;
+      gap: .2rem;
+      margin-bottom: .25rem;
+    }
+    .project-title {
+      font-family: var(--serif);
+      font-size: 1.05rem;
+      font-weight: 600;
+      color: var(--ink);
+    }
+    .project-year {
+      font-size: .78rem;
+      font-weight: 500;
+      color: var(--faint);
+      white-space: nowrap;
+    }
+    .project-company {
+      font-size: .8rem;
+      color: var(--accent);
+      font-weight: 500;
+      margin-bottom: .5rem;
+    }
+    .stack-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: .3rem;
+      margin-bottom: .75rem;
+    }
+    .tag {
+      background: var(--tag-bg);
+      color: var(--muted);
+      font-size: .7rem;
+      font-weight: 500;
+      padding: .15rem .5rem;
+      border-radius: 3px;
+      letter-spacing: .02em;
+    }
+    .project-desc {
+      font-size: .83rem;
+      color: var(--muted);
+      margin-bottom: .75rem;
+      line-height: 1.7;
+    }
+    .deliverables-title {
+      font-size: .72rem;
+      font-weight: 600;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      color: var(--faint);
+      margin-bottom: .4rem;
+    }
+    .deliverables {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: .3rem;
+    }
+    .deliverables li {
+      font-size: .82rem;
+      color: var(--muted);
+      padding-left: 1rem;
+      position: relative;
+      line-height: 1.6;
+    }
+    .deliverables li::before {
+      content: '→';
+      position: absolute;
+      left: 0;
+      color: var(--accent);
+      font-size: .75rem;
+      top: .05em;
+    }
+
+    /* Flows sub-list */
+    .flows-title {
+      font-size: .72rem;
+      font-weight: 600;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      color: var(--faint);
+      margin: .7rem 0 .35rem;
+    }
+    .flows {
+      display: flex;
+      flex-wrap: wrap;
+      gap: .3rem;
+    }
+    .flow-pill {
+      background: var(--accent-lt);
+      color: var(--accent);
+      font-size: .73rem;
+      font-weight: 500;
+      padding: .2rem .6rem;
+      border-radius: 20px;
+    }
+
+    /* ── WORK EXPERIENCE ── */
+    .job { margin-bottom: 1.4rem; }
+    .job-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      flex-wrap: wrap;
+      gap: .2rem;
+    }
+    .job-title {
+      font-weight: 600;
+      font-size: .93rem;
+      color: var(--ink);
+    }
+    .job-period {
+      font-size: .78rem;
+      color: var(--faint);
+      white-space: nowrap;
+    }
+    .job-company {
+      font-size: .8rem;
+      color: var(--accent);
+      font-weight: 500;
+      margin-bottom: .4rem;
+    }
+    .job-note {
+      font-size: .78rem;
+      color: var(--faint);
+      font-style: italic;
+      margin-bottom: .4rem;
+    }
+    .job ul {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: .25rem;
+    }
+    .job ul li {
+      font-size: .82rem;
+      color: var(--muted);
+      padding-left: 1rem;
+      position: relative;
+      line-height: 1.6;
+    }
+    .job ul li::before {
+      content: '·';
+      position: absolute;
+      left: 0;
+      color: var(--accent);
+      font-weight: 700;
+    }
+
+    /* ── CERTIFICATIONS ── */
+    .cert-group { margin-bottom: 1rem; }
+    .cert-group-title {
+      font-size: .78rem;
+      font-weight: 600;
+      color: var(--ink);
+      margin-bottom: .45rem;
+    }
+    .cert-pills {
+      display: flex;
+      flex-wrap: wrap;
+      gap: .3rem;
+    }
+    .cert-pill {
+      background: var(--tag-bg);
+      border: 1px solid var(--rule);
+      border-radius: 4px;
+      font-size: .75rem;
+      color: var(--muted);
+      padding: .25rem .6rem;
+      line-height: 1.4;
+    }
+
+    /* ── EDUCATION ── */
+    .edu-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      flex-wrap: wrap;
+      gap: .2rem;
+    }
+    .edu-title { font-weight: 600; font-size: .9rem; color: var(--ink); }
+    .edu-year { font-size: .78rem; color: var(--faint); }
+    .edu-inst { font-size: .82rem; color: var(--muted); margin-top: .15rem; }
+
+    /* ── FOOTER ── */
+    footer {
+      text-align: center;
+      padding: 1.2rem 3rem;
+      border-top: 1px solid var(--rule);
+      font-size: .75rem;
+      color: var(--faint);
+      background: var(--bg);
+    }
+    footer a { color: var(--accent); text-decoration: none; }
+
+    /* ── PRINT ── */
+    @media print {
+      body { background: #fff; }
+      .page { box-shadow: none; border-radius: 0; margin: 0; max-width: 100%; }
+      .project-card:hover { box-shadow: none; }
+      header::after { display: none; }
+    }
+
+    @media (max-width: 620px) {
+      header, .body { padding-left: 1.4rem; padding-right: 1.4rem; }
+      .skill-label { min-width: 140px; }
+      .name { font-size: 1.9rem; }
+    }
+  </style>
+</head>
+<body>
+<div class="page">
+
+  <!-- HEADER -->
+  <header>
+    <div class="name">Jason Osarebo Adams</div>
+    <div class="title">CRM Automation &amp; Email Marketing Specialist</div>
+    <div class="contact-bar">
+      <a href="mailto:jasonadams.emailmarketing@gmail.com">
+        <svg width="12" height="12" viewBox="0 0 16 16" fill="currentColor"><path d="M2 3a1 1 0 0 0-1 1v8a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V4a1 1 0 0 0-1-1H2zm0 1.5 6 3.75 6-3.75V4L8 7.75 2 4v.5z"/></svg>
+        jasonadams.emailmarketing@gmail.com
+      </a>
+      <span class="sep">|</span>
+      <span>
+        <svg width="12" height="12" viewBox="0 0 16 16" fill="currentColor"><path d="M8 1a5 5 0 1 0 0 10A5 5 0 0 0 8 1zm0 1.5a3.5 3.5 0 1 1 0 7 3.5 3.5 0 0 1 0-7zM1.5 14a.75.75 0 0 1 .75-.75h11.5a.75.75 0 0 1 0 1.5H2.25A.75.75 0 0 1 1.5 14z"/></svg>
+        Lagos, Nigeria
+      </span>
+      <span class="sep">|</span>
+      <a href="https://linkedin.com/in/jasonadams-email" target="_blank">
+        <svg width="12" height="12" viewBox="0 0 16 16" fill="currentColor"><path d="M0 1.146C0 .513.526 0 1.175 0h13.65C15.474 0 16 .513 16 1.146v13.708c0 .633-.526 1.146-1.175 1.146H1.175C.526 16 0 15.487 0 14.854V1.146zm4.943 12.248V6.169H2.542v7.225h2.401zm-1.2-8.212c.837 0 1.358-.554 1.358-1.248-.015-.709-.52-1.248-1.342-1.248-.822 0-1.359.54-1.359 1.248 0 .694.521 1.248 1.327 1.248h.016zm4.908 8.212V9.359c0-.216.016-.432.08-.586.173-.431.568-.878 1.232-.878.869 0 1.216.662 1.216 1.634v3.865h2.401V9.25c0-2.22-1.184-3.252-2.764-3.252-1.274 0-1.845.7-2.165 1.193v.025h-.016l.016-.025V6.169h-2.4c.03.678 0 7.225 0 7.225h2.4z"/></svg>
+        linkedin.com/in/jasonadams-email
+      </a>
+      <span class="sep">|</span>
+      <a href="https://jasonadams-portfolio.vercel.app" target="_blank">
+        <svg width="12" height="12" viewBox="0 0 16 16" fill="currentColor"><path d="M8 0C3.58 0 0 3.58 0 8s3.58 8 8 8 8-3.58 8-8-3.58-8-8-8zm5.44 5.12h-2.36a12.8 12.8 0 0 0-1.12-2.9 6.43 6.43 0 0 1 3.48 2.9zM8 1.6c.55.78 1.27 1.96 1.6 3.52H6.4C6.73 3.56 7.45 2.38 8 1.6zM1.6 9.6A6.4 6.4 0 0 1 1.6 8c0-.56.07-1.1.18-1.6h2.7A14.7 14.7 0 0 0 4.38 8c0 .55.04 1.09.1 1.6H1.6zm.96 1.28h2.36c.26 1.05.64 1.96 1.12 2.9a6.43 6.43 0 0 1-3.48-2.9zM4.92 5.12H2.56a6.43 6.43 0 0 1 3.48-2.9c-.48.94-.86 1.85-1.12 2.9zM8 14.4c-.55-.78-1.27-1.96-1.6-3.52h3.2c-.33 1.56-1.05 2.74-1.6 3.52zm1.92-4.8H6.08A13.3 13.3 0 0 1 5.96 8c0-.57.05-1.1.12-1.6h3.84c.07.5.12 1.03.12 1.6 0 .57-.05 1.1-.12 1.6zm.16 4.18c.48-.94.86-1.85 1.12-2.9h2.36a6.43 6.43 0 0 1-3.48 2.9zm1.42-4.18c.06-.51.1-1.05.1-1.6 0-.55-.04-1.09-.1-1.6h2.7c.11.5.18 1.04.18 1.6s-.07 1.1-.18 1.6h-2.7z"/></svg>
+        jasonadams-portfolio.vercel.app
+      </a>
+    </div>
+  </header>
+
+  <div class="body">
+
+    <!-- PROFESSIONAL SUMMARY -->
+    <section class="summary">
+      <div class="section-title">
+        <svg width="13" height="13" viewBox="0 0 16 16" fill="currentColor"><path d="M8 8a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm2-3a2 2 0 1 1-4 0 2 2 0 0 1 4 0zm4 8c0 1-1 1-1 1H3s-1 0-1-1 1-4 6-4 6 3 6 4z"/></svg>
+        Professional Summary
+      </div>
+      <p>Results-driven CRM Automation and Email Marketing Specialist with certified expertise and hands-on, platform-level experience building end-to-end automated systems across HubSpot, Klaviyo, Make.com, and custom JavaScript integrations. Demonstrated ability to architect multi-tool automation pipelines combining no-code platforms with custom code — including a Speed-to-Lead system integrating HubSpot CRM, Make.com, Pipedream, Google Sheets, Slack, and a React dashboard deployed on Vercel. Skilled in flow architecture, engagement-based segmentation, webhook integration, CRM property management, lead scoring, and lifecycle automation. Backed by eleven industry certifications spanning email marketing, CRM, sales pipeline management, analytics, content strategy, social media, and generative AI. Available immediately for worldwide remote opportunities.</p>
+    </section>
+
+    <!-- SKILLS -->
+    <section>
+      <div class="section-title">
+        <svg width="13" height="13" viewBox="0 0 16 16" fill="currentColor"><path d="M9.5 2a.5.5 0 0 1 0 1h-3a.5.5 0 0 1 0-1h3zm-5 1A1.5 1.5 0 0 0 3 4.5v7A1.5 1.5 0 0 0 4.5 13h7a1.5 1.5 0 0 0 1.5-1.5v-7A1.5 1.5 0 0 0 11.5 3h-7zM4 4.5A.5.5 0 0 1 4.5 4h7a.5.5 0 0 1 .5.5v7a.5.5 0 0 1-.5.5h-7a.5.5 0 0 1-.5-.5v-7z"/></svg>
+        Skills
+      </div>
+      <div class="skills-grid">
+        <div class="skill-row"><span class="skill-label">CRM &amp; Marketing Automation</span><span class="skill-value">HubSpot CRM, HubSpot Marketing Hub, Klaviyo, Pipedrive, Make.com (scenario building, routing, filtering, webhook integration, HTTP modules)</span></div>
+        <div class="skill-row"><span class="skill-label">Integration &amp; Development</span><span class="skill-value">JavaScript / Node.js (lead scoring logic, API response building), Pipedream (HTTP triggers, custom scoring engine), React (dashboard development), Vercel (serverless deployment), Webhook architecture (HubSpot → Make.com → Pipedream)</span></div>
+        <div class="skill-row"><span class="skill-label">Email Automation</span><span class="skill-value">Welcome Series, Abandoned Cart, Browse Abandonment, Post-Purchase, Win-Back, Lead Nurture, Re-engagement flows</span></div>
+        <div class="skill-row"><span class="skill-label">Segmentation &amp; Personalisation</span><span class="skill-value">Behavioural triggers, engagement-based segmentation, conditional splits, lead scoring, dynamic content</span></div>
+        <div class="skill-row"><span class="skill-label">Development</span><span class="skill-value">HTML/CSS custom email development, responsive design, drag-and-drop builders</span></div>
+        <div class="skill-row"><span class="skill-label">Analytics &amp; Tracking</span><span class="skill-value">Google Analytics 4, UTM parameters, campaign attribution, A/B testing, speed-to-lead measurement</span></div>
+        <div class="skill-row"><span class="skill-label">Deliverability</span><span class="skill-value">SPF/DKIM authentication, sender reputation management, list hygiene, inbox placement, domain warming</span></div>
+        <div class="skill-row"><span class="skill-label">AI &amp; Generative Tools</span><span class="skill-value">Generative AI for marketing content, AI-assisted copywriting, prompt engineering</span></div>
+      </div>
+    </section>
+
+    <!-- PORTFOLIO PROJECTS -->
+    <section>
+      <div class="section-title">
+        <svg width="13" height="13" viewBox="0 0 16 16" fill="currentColor"><path d="M1 2.5A1.5 1.5 0 0 1 2.5 1h3A1.5 1.5 0 0 1 7 2.5v3A1.5 1.5 0 0 1 5.5 7h-3A1.5 1.5 0 0 1 1 5.5v-3zM9 2.5A1.5 1.5 0 0 1 10.5 1h3A1.5 1.5 0 0 1 15 2.5v3A1.5 1.5 0 0 1 13.5 7h-3A1.5 1.5 0 0 1 9 5.5v-3zm-7.5 7A1.5 1.5 0 0 0 0 11v3A1.5 1.5 0 0 0 1.5 15h3A1.5 1.5 0 0 0 6 13.5v-3A1.5 1.5 0 0 0 4.5 9h-3zm7.5 0A1.5 1.5 0 0 0 7.5 11v3A1.5 1.5 0 0 0 9 15.5h3a1.5 1.5 0 0 0 1.5-1.5v-3A1.5 1.5 0 0 0 12 9h-3z"/></svg>
+        Portfolio Projects
+      </div>
+
+      <!-- Project 1 -->
+      <div class="project-card">
+        <div class="project-header">
+          <span class="project-title">Speed-to-Lead &amp; Lead Scoring Automation</span>
+          <span class="project-year">2026</span>
+        </div>
+        <div class="project-company">Zylora Tech — Speed to Lead Automation System</div>
+        <div class="stack-tags">
+          <span class="tag">Tally.so</span><span class="tag">Make.com</span><span class="tag">HubSpot CRM</span><span class="tag">Gmail</span><span class="tag">Slack</span><span class="tag">Google Sheets</span><span class="tag">Cal.com</span><span class="tag">Pipedream</span>
+        </div>
+        <p class="project-desc">Designed and built a production-ready, end-to-end Speed to Lead automation system handling the full lead lifecycle — from first touch to booked meeting — with zero manual intervention. The system captures leads via a Tally.so form and responds automatically within 60 seconds, 24/7. Built on two independent Make.com scenarios: a Lead Capture &amp; Instant Response scenario firing 4 parallel branches simultaneously, and a dedicated Booking Handler scenario. Architected a Pipedream middleware layer to resolve a regional Cal.com/Make.com webhook incompatibility — a real-world production architecture decision.</p>
+        <div class="deliverables-title">Technical Deliverables</div>
+        <ul class="deliverables">
+          <li>Configured HubSpot CRM to create or update contacts on every submission, prevent duplicates, map all lead source fields, set lifecycle stage automatically, and auto-create a sales rep follow-up task due within 24 hours</li>
+          <li>Sent a personalised Gmail reply to every lead within 60 seconds of form submission — first name merged in subject line, Cal.com booking link in body — connected via Google OAuth</li>
+          <li>Built Make.com Lead Capture scenario with a Router module firing 4 parallel branches simultaneously (HubSpot, Gmail, Slack, Google Sheets) and a separate Booking Handler scenario to keep the two workflows independent and maintainable</li>
+          <li>Delivered real-time Slack alerts to a dedicated #new-leads channel with full lead details and a one-click Cal.com booking link on both form submission and confirmed booking events</li>
+          <li>Maintained a live Google Sheets audit log with all lead fields, submission timestamp, HubSpot Contact ID, and status — auto-updating from "New" to "Meeting Booked" when a Cal.com booking was detected</li>
+          <li>Architected Pipedream as a middleware layer to forward Cal.com webhook events to Make.com, resolving a regional webhook incompatibility — reducing manual steps per lead from 6–10 actions to zero</li>
+        </ul>
+      </div>
+
+      <!-- Project 2 -->
+      <div class="project-card">
+        <div class="project-header">
+          <span class="project-title">Lead to Booking — Automated Sales System</span>
+          <span class="project-year">2026</span>
+        </div>
+        <div class="project-company">Elevate Coaching Co. — Hybrid Portfolio Project</div>
+        <div class="stack-tags">
+          <span class="tag">HubSpot CRM</span><span class="tag">Make.com</span><span class="tag">JavaScript Code Module</span><span class="tag">Google Sheets</span><span class="tag">Gmail</span><span class="tag">Cal.com</span><span class="tag">React</span><span class="tag">Vercel</span>
+        </div>
+        <p class="project-desc">Built a complete Lead to Booking automated sales system using a hybrid no-code and code approach. Make.com handles external automation using a JavaScript Code module — replacing Set Variable modules entirely — for cleaner, more reliable logic. All 6 nurture emails are sent via Gmail through a daily Make.com scenario with Router logic that fires the correct email based on days since signup and last email sent.</p>
+        <div class="deliverables-title">Technical Deliverables</div>
+        <ul class="deliverables">
+          <li>Built 4 HubSpot workflows for CRM property management, deal stage automation, booking confirmation, and re-engagement — no email actions (handled by Make.com)</li>
+          <li>Created custom HubSpot property "Last Email Sent" to track sequence position and prevent duplicate email sends</li>
+          <li>Engineered Make.com Scenario 2 with a daily Search Contacts trigger, JavaScript Code module for sequence logic, and 7-route Router for email dispatching</li>
+          <li>Configured 5 smart segments in HubSpot: All New Leads, Engaged Not Booked, Hot Leads, Re-engagement Candidates, Booked Calls</li>
+          <li>Deployed React dashboard on Vercel showing live lead data, score badges, booking status, and pipeline progress</li>
+        </ul>
+      </div>
+
+      <!-- Project 3 -->
+      <div class="project-card">
+        <div class="project-header">
+          <span class="project-title">Email Marketing Automation System</span>
+          <span class="project-year">2025 · 8 Weeks</span>
+        </div>
+        <div class="project-company">LuxeGlow Beauty Skincare — Fictitious DTC Brand</div>
+        <div class="stack-tags">
+          <span class="tag">Klaviyo (Live Env)</span><span class="tag">HTML/CSS</span><span class="tag">Google Analytics 4</span>
+        </div>
+        <p class="project-desc">Designed and executed a full-scale email marketing automation system for a fictional DTC skincare brand demonstrating professional-level strategy and technical execution across the complete customer lifecycle.</p>
+        <div class="deliverables-title">Technical Deliverables</div>
+        <ul class="deliverables">
+          <li>Built 5 automated email flows in Klaviyo covering the complete customer lifecycle — 18 individual emails in total</li>
+          <li>Developed all emails using HTML/CSS custom coding and drag-and-drop techniques, optimised for mobile responsiveness</li>
+          <li>Implemented conditional logic and engagement-based segmentation to personalise messaging based on subscriber behaviour</li>
+          <li>Configured UTM parameters across all flows for accurate Google Analytics 4 attribution and revenue tracking</li>
+          <li>Developed a progressive incentive strategy (0% → 10% → 15% discounting) to protect margin while recovering revenue</li>
+          <li>Set up A/B tests on subject lines and send timing to continuously optimise open rates and deliverability</li>
+        </ul>
+        <div class="flows-title">Flows Built</div>
+        <div class="flows">
+          <span class="flow-pill">Welcome Series · 5 emails</span>
+          <span class="flow-pill">Abandoned Cart · 3 emails</span>
+          <span class="flow-pill">Browse Abandonment · 2 emails</span>
+          <span class="flow-pill">Post-Purchase Nurture · 5 emails</span>
+          <span class="flow-pill">Win-Back Campaign · 3 emails</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- WORK EXPERIENCE -->
+    <section>
+      <div class="section-title">
+        <svg width="13" height="13" viewBox="0 0 16 16" fill="currentColor"><path d="M6.5 1A1.5 1.5 0 0 0 5 2.5V3H1.5A1.5 1.5 0 0 0 0 4.5v8A1.5 1.5 0 0 0 1.5 14h13a1.5 1.5 0 0 0 1.5-1.5v-8A1.5 1.5 0 0 0 14.5 3H11v-.5A1.5 1.5 0 0 0 9.5 1h-3zm0 1h3a.5.5 0 0 1 .5.5V3H6v-.5a.5.5 0 0 1 .5-.5z"/></svg>
+        Work Experience
+      </div>
+
+      <div class="job">
+        <div class="job-header">
+          <span class="job-title">Email Marketing Intern</span>
+          <span class="job-period">March 2019 – January 2020</span>
+        </div>
+        <div class="job-company">PulseBridge Media (Startup) — Remote</div>
+        <p class="job-note">PulseBridge Media was a remote-first email marketing startup that ceased operations during the COVID-19 pandemic in 2020.</p>
+        <ul>
+          <li>Executed email marketing campaigns using Mailchimp to support user engagement and product communication in a fast-paced startup environment</li>
+          <li>Wrote and deployed email newsletters focused on product updates, user onboarding, and retention</li>
+          <li>Built and managed automated welcome email sequences for new subscribers to improve onboarding experience</li>
+          <li>Assisted in creating and optimising landing pages to increase lead capture and campaign conversion rates</li>
+          <li>Collaborated with a small marketing team to plan content calendars, email flows, and campaign launches</li>
+          <li>Supported audience segmentation and email list management to improve targeting and engagement</li>
+          <li>Monitored campaign performance metrics and contributed to ongoing email content improvements</li>
+        </ul>
+      </div>
+
+      <div class="job">
+        <div class="job-header">
+          <span class="job-title">Senior Healthcare Assistant</span>
+          <span class="job-period">2022 – 2024</span>
+        </div>
+        <div class="job-company">Tumors And Diabetic Care Foundation, Lagos <em style="font-weight:400;color:var(--faint)">· Voluntary Role</em></div>
+        <ul>
+          <li>Provided high-quality personal care maintaining dignity, comfort, and safety standards</li>
+          <li>Supervised and mentored junior care assistants with on-the-job guidance</li>
+          <li>Maintained detailed patient care records demonstrating strong attention to detail</li>
+          <li>Coordinated care schedules and communicated with multidisciplinary team members</li>
+          <li>Monitored patient health indicators and escalated concerns to qualified nursing staff promptly</li>
+        </ul>
+      </div>
+
+      <div class="job">
+        <div class="job-header">
+          <span class="job-title">Farm Operations Supervisor</span>
+          <span class="job-period">2016 – 2018</span>
+        </div>
+        <div class="job-company">Gordini Farms, Benin City</div>
+        <ul>
+          <li>Oversaw day-to-day farm operations managing feeding schedules, health monitoring, and biosecurity</li>
+          <li>Coordinated and supervised a team of farm workers ensuring adherence to operational procedures</li>
+          <li>Maintained accurate stock and inventory records reporting outputs to farm management regularly</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- CERTIFICATIONS -->
+    <section>
+      <div class="section-title">
+        <svg width="13" height="13" viewBox="0 0 16 16" fill="currentColor"><path d="M8 15A7 7 0 1 1 8 1a7 7 0 0 1 0 14zm0 1A8 8 0 1 0 8 0a8 8 0 0 0 0 16z"/><path d="M10.97 4.97a.235.235 0 0 0-.02.022L7.477 9.417 5.384 7.323a.75.75 0 0 0-1.06 1.06L6.97 11.03a.75.75 0 0 0 1.079-.02l3.992-4.99a.75.75 0 0 0-1.071-1.05z"/></svg>
+        Certifications
+      </div>
+
+      <div class="cert-group">
+        <div class="cert-group-title">Email Marketing, CRM &amp; Automation</div>
+        <div class="cert-pills">
+          <span class="cert-pill">Klaviyo Product Certification</span>
+          <span class="cert-pill">Klaviyo Deliverability Certificate</span>
+          <span class="cert-pill">HubSpot Marketing Hub Software Certification</span>
+          <span class="cert-pill">Email Marketing Certification — HubSpot Academy</span>
+          <span class="cert-pill">Inbound Marketing Certification — HubSpot Academy</span>
+          <span class="cert-pill">Content Marketing Certification — HubSpot Academy</span>
+          <span class="cert-pill">Social Media Marketing Certification — HubSpot Academy</span>
+          <span class="cert-pill">Make.com Advanced Certification</span>
+          <span class="cert-pill">Pipedrive Essentials for Sales Reps</span>
+        </div>
+      </div>
+
+      <div class="cert-group">
+        <div class="cert-group-title">Analytics &amp; Digital Marketing</div>
+        <div class="cert-pills">
+          <span class="cert-pill">Google Analytics 4 Certification</span>
+          <span class="cert-pill">Google Foundations of Digital Marketing</span>
+          <span class="cert-pill">Generative AI in Social Media Marketing — Meta · Coursera 2025</span>
+        </div>
+      </div>
+
+      <div class="cert-group">
+        <div class="cert-group-title">Healthcare &amp; Professional Development</div>
+        <div class="cert-pills">
+          <span class="cert-pill">Nurse Assistant Diploma — REED Courses (Thames College UK) 2025</span>
+          <span class="cert-pill">Care Certificate — Care Standards 1–15 — Caredemy 2023</span>
+          <span class="cert-pill">Understanding Medication for Caregivers — Alison 2023</span>
+          <span class="cert-pill">Diploma in Caregiving — Alison 2022</span>
+          <span class="cert-pill">Infection Prevention &amp; Control in Healthcare — Alison 2023</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- EDUCATION -->
+    <section>
+      <div class="section-title">
+        <svg width="13" height="13" viewBox="0 0 16 16" fill="currentColor"><path d="M8.211 2.047a.5.5 0 0 0-.422 0l-7.5 3.5a.5.5 0 0 0 .025.917l7.5 3a.5.5 0 0 0 .372 0L14 7.14V13a1 1 0 0 0-1 1v2h3v-2a1 1 0 0 0-1-1V6.739l.686-.275a.5.5 0 0 0 .025-.917l-7.5-3.5zM8 8.46 1.758 5.965 8 3.052l6.242 2.913L8 8.46z"/><path d="M4.176 9.032a.5.5 0 0 0-.656.327l-.5 1.7a.5.5 0 0 0 .294.605l4.5 1.8a.5.5 0 0 0 .372 0l4.5-1.8a.5.5 0 0 0 .294-.605l-.5-1.7a.5.5 0 0 0-.656-.327L8 10.466 4.176 9.032z"/></svg>
+        Education
+      </div>
+      <div class="edu-row">
+        <span class="edu-title">Professional Diploma — Financial Administration</span>
+        <span class="edu-year">2003</span>
+      </div>
+      <div class="edu-inst">Chartered Institute of Administration (CIA) · Nigerian College of Administration</div>
+    </section>
+
+  </div><!-- /.body -->
+
+  <footer>
+    <a href="mailto:jasonadams.emailmarketing@gmail.com">jasonadams.emailmarketing@gmail.com</a>
+    &nbsp;·&nbsp;
+    <a href="https://linkedin.com/in/jasonadams-email" target="_blank">LinkedIn</a>
+    &nbsp;·&nbsp;
+    <a href="https://jasonadams-portfolio.vercel.app" target="_blank">Portfolio</a>
+  </footer>
+
+</div>
+</body>
+</html>
